@@ -5,13 +5,15 @@ interface JwtPayload {
   id: string;
 }
 
+interface UserPayload {
+  id: string;
+  isAdmin: boolean;
+}
+
 declare global {
   namespace Express {
     interface Request {
-      user?: {
-        id: string;
-        isAdmin: boolean;
-      };
+      user?: UserPayload;
     }
   }
 }
